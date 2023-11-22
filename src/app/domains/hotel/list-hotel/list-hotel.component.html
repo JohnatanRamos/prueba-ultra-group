@@ -1,0 +1,26 @@
+@if (moodEdit || db.hoteles().length === 0) {
+
+<app-form-hotel [hotelData]="hotelData" (onCloseForm)="changeView()"></app-form-hotel>
+
+} @else {
+
+<div class="hotel-list">
+    @for (hotel of db.hoteles(); track hotel.id) {
+
+    <div class="hotel">
+        <div class="hotel-info">
+            <h3>Hotel: {{ hotel.name }}</h3>
+            <p>City: {{ hotel.city }}</p>
+            <p>Enabled: {{ hotel.enable }}</p>
+        </div>
+        <div class="hotel-actions">
+            <button class="edit-button" (click)="changeView(hotel)">Edit</button>
+            <button class="disable-button" (click)="updateState(hotel)">Disable</button>
+        </div>
+    </div>
+    } @empty {
+    No hay hoteles que mostrar
+    }
+</div>
+
+}
