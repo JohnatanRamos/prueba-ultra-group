@@ -1,0 +1,9 @@
+<div class="button-container">
+    <button mat-raised-button color="primary" type="button"
+    (click)="handlerSave()" 
+    [disabled]="disabledButton">
+        Guardar
+    </button>
+
+    <button mat-button color="warn" [mat-dialog-close]="true">Cancelar</button>
+</div>

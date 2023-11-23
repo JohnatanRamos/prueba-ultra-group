@@ -1,7 +1,19 @@
 import { Routes } from '@angular/router';
-import { ListHotelComponent } from './domains/hotel/list-hotel/list-hotel.component';
+import { AdministrationComponent } from './modules/administration/administration.component';
+import { ReserveComponent } from './modules/reserve/reserve.component';
 
-export const routes: Routes = [{
+export const routes: Routes = [
+  {
     path: '',
-    component: ListHotelComponent
-}];
+    redirectTo: 'administracion',
+    pathMatch: 'full'
+  },
+  {
+    path: 'reservar',
+    component: ReserveComponent,
+  },
+  {
+    path: 'administracion',
+    component: AdministrationComponent,
+  }
+];

@@ -1,0 +1,11 @@
+<form [formGroup]="form" class="container">
+    <mat-form-field>
+        <input matInput formControlName="room" placeholder="Room">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput formControlName="numberOfGuests" type="number" placeholder="Number of Guests">
+    </mat-form-field>
+
+    <app-modal-buttons [disabledButton]="form.invalid" (onSaveModal)="create()"></app-modal-buttons>
+</form>

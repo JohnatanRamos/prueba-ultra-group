@@ -1,11 +1,11 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Hotel } from '../models/hotel';
+import { StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HotelesService {
-  hoteles = signal<Hotel[]>([]);
+export class HotelesService extends StoreService {
 
   createHotel(hotel: Hotel) {
     this.hoteles.update(state => [...state, hotel]);

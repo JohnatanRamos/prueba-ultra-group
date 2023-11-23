@@ -1,0 +1,19 @@
+<app-filter (onHandlerDates)="setDates($event)"></app-filter>
+
+<div class="hotel-list">
+    @for (item of bdService.filterHabitations(); track item.id) {
+
+    <div class="hotel">
+        <div class="hotel-info">
+            <h3>Nombre: {{ item.name }}</h3>
+            <p>Hotel: {{ item.hotel.name }}</p>
+            <p>Enabled: {{ item.enable }}</p>
+        </div>
+        <div class="hotel-actions">
+            <button class="edit-button" (click)="manageModal(item)">Reservar</button>
+        </div>
+    </div>
+    } @empty {
+    No hay reservas que mostrar
+    }
+</div>

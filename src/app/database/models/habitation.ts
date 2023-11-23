@@ -1,13 +1,13 @@
-import { Reservation } from "./reservation";
+import { Hotel } from "./hotel";
 
 export interface Habitation {
+  id: number;
   enable: boolean;
   name: string;
-  baseCost: number;
-  taxes: number;
-  roomType: string;
+  baseCost?: number;
+  taxes?: number;
+  roomType?: string;
   location: string;
-  reserved: boolean;
   quantity: number;
-  reservations: Reservation[];
+  hotel: Hotel;
 }

@@ -1,0 +1,16 @@
+<div class="hotel-list">
+    @for (item of reservationsService.reservations(); track item.id) {
+
+    <div class="hotel">
+        <div class="hotel-info">
+            <h3>Hotel: {{ item.habitation.hotel.name }}</h3>
+            <p>City: {{ item.habitation.hotel.city }}</p>
+            <p>Habitacion: {{ item.habitation.name }}</p>
+            <p>Cantidad Habitación: {{ item.habitation.quantity }}</p>
+            <p>Reservacion: {{ item.checkInDate | date }} - {{ item.checkOutDate | date }} </p>
+        </div>
+    </div>
+    } @empty {
+    No hay reservas que mostrar
+    }
+</div>

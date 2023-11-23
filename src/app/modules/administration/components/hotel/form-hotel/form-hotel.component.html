@@ -1,0 +1,20 @@
+<form [formGroup]="form" class="my-form">
+
+    <div class="content-form">
+
+        <mat-form-field class="full-width">
+            <mat-label>Nombre del Hotel:</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Ciudad:</mat-label>
+            <input matInput type="text" id="ciudad" formControlName="city">
+        </mat-form-field>
+
+        <mat-checkbox formControlName="enable">Habilitar</mat-checkbox>
+
+    </div>
+
+    <app-modal-buttons [disabledButton]="form.invalid" (onSaveModal)="validateAction()"></app-modal-buttons>
+</form>

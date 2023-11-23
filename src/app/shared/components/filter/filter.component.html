@@ -1,0 +1,34 @@
+<div class="container">
+
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate formControlName="start" [readOnly]="true" placeholder="Start date">
+                <input matEndDate formControlName="end" [readOnly]="true" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+
+            @if (form.controls.start.hasError('matStartDateInvalid')) {
+            <mat-error>Invalid start date</mat-error>
+            }
+            @if (form.controls.end.hasError('matEndDateInvalid')) {
+            <mat-error>Invalid end date</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field style="max-width: 215px;">
+            <mat-label>Cantidad de personas</mat-label>
+            <input matInput type="number" formControlName="amount" placeholder="Cantidad de personas" />
+        </mat-form-field>
+
+        <mat-form-field style="max-width: 215px;">
+            <mat-label>Ciudad</mat-label>
+            <input matInput placeholder="Ciudad" formControlName="city" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="filter()">Filtrar</button>
+    </form>
+</div>

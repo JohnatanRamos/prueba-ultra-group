@@ -1,0 +1,20 @@
+<app-create-button (onCreate)="manageModal()"></app-create-button>
+
+<div class="hotel-list">
+    @for (hotel of hotelesService.hoteles(); track hotel.id) {
+
+    <div class="hotel">
+        <div class="hotel-info">
+            <h3>Hotel: {{ hotel.name }}</h3>
+            <p>City: {{ hotel.city }}</p>
+            <p>Enabled: {{ hotel.enable }}</p>
+        </div>
+        <div class="hotel-actions">
+            <button class="edit-button" (click)="manageModal(hotel)">Edit</button>
+            <button class="disable-button" (click)="changeStateHotel(hotel)">Disable</button>
+        </div>
+    </div>
+    } @empty {
+    No hay hoteles que mostrar
+    }
+</div>

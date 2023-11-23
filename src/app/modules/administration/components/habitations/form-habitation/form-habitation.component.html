@@ -1,0 +1,49 @@
+<form [formGroup]="form" class="my-form">
+
+    <div class="content-form">
+
+        <mat-form-field class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Base Cost</mat-label>
+            <input matInput type="number" formControlName="baseCost">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Taxes</mat-label>
+            <input matInput type="number" formControlName="taxes">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Room Type</mat-label>
+            <input matInput type="text" formControlName="roomType">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Location</mat-label>
+            <input matInput type="text" formControlName="location">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" formControlName="quantity">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Hotel</mat-label>
+            <mat-select disableRipple formControlName="hotel">
+                @for (topping of listHotels(); track topping.id) {
+                    <mat-option [value]="topping">{{topping.name}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="enable">Enable</mat-checkbox>
+
+    </div>
+
+    <app-modal-buttons [disabledButton]="form.invalid" (onSaveModal)="validateAction()"></app-modal-buttons>
+</form>
